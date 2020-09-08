@@ -27,6 +27,10 @@ install_sfdx_cli() {
   npm install sfdx-cli --global
 }
 
+install_plugins() {
+  sfdx plugins:install isvte-sfdx-plugin
+}
+
 setup_dirs() {
   export PATH="$BUILD_DIR/vendor/sfdx/cli/bin:$PATH"
 }
@@ -45,6 +49,7 @@ debug "BP_DIR: $BP_DIR"
 setup_dirs
 log "Starting CLI installation ..."
 install_sfdx_cli
+install_plugins
 
 header "DONE! Completed in $(($SECONDS - $START_TIME))s"
 exit 0
